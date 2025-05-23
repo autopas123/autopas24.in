@@ -1,0 +1,11 @@
+/* Tailwind-like utility base */
+html,body{margin:0;padding:0;font-family:sans-serif;}
+body{background:#fff;color:#222;transition:background .3s,color .3s;}
+.dark{background:#18181b;color:#f7f7f7;}
+.flex{display:flex;align-items:center;}
+.justify-between{justify-content:space-between;}
+.rounded{border-radius:8px;}
+.shadow{box-shadow:0 2px 8px #0003;}
+.btn{padding:8px 20px;border-radius:5px;border:none;font-weight:bold;background:#2563eb;color:#fff;cursor:pointer;transition:background .2s;}
+.btn[disabled]{opacity:.5;cursor:not-allowed;}
+/* ...copy the rest of your CSS here... */
