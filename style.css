@@ -1,11 +1,88 @@
-/* Tailwind-like utility base */
-html,body{margin:0;padding:0;font-family:sans-serif;}
-body{background:#fff;color:#222;transition:background .3s,color .3s;}
-.dark{background:#18181b;color:#f7f7f7;}
-.flex{display:flex;align-items:center;}
-.justify-between{justify-content:space-between;}
-.rounded{border-radius:8px;}
-.shadow{box-shadow:0 2px 8px #0003;}
-.btn{padding:8px 20px;border-radius:5px;border:none;font-weight:bold;background:#2563eb;color:#fff;cursor:pointer;transition:background .2s;}
-.btn[disabled]{opacity:.5;cursor:not-allowed;}
-/* ...copy the rest of your CSS here... */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background: linear-gradient(135deg, #101726 0%, #2d3250 100%);
+  color: #f6f7fb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main#app {
+  outline: none;
+}
+
+.gate-wrap {
+  position: relative;
+  width: 340px;
+  height: 220px;
+  margin: 48px auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(30, 36, 56, 0.7);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(16, 23, 42, 0.37);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(98, 146, 255, 0.22);
+  overflow: hidden;
+}
+
+.gate-panel {
+  width: 110px;
+  height: 170px;
+  position: absolute;
+  bottom: 30px;
+  transition: 
+    transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1), 
+    box-shadow 0.25s;
+  background: linear-gradient(135deg, #6a93ff 0%, #243b55 100%);
+  box-shadow: 0 4px 28px 0 rgba(106,147,255,0.15);
+  border: 2.5px solid #98b3ff;
+}
+
+.gate-left {
+  left: 0;
+  border-radius: 20px 0 0 24px;
+  box-shadow: -4px 0 24px 0 rgba(106, 147, 255, 0.18);
+}
+
+.gate-right {
+  right: 0;
+  border-radius: 0 20px 24px 0;
+  box-shadow: 4px 0 24px 0 rgba(106, 147, 255, 0.18);
+}
+
+.gate-floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(90deg, #374151 0%, #637aff 100%);
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 8px 20px 0 rgba(55, 65, 81, 0.35);
+  border-top: 2px solid #a8b6ff;
+}
+
+.gate-panel,
+.gate-floor {
+  /* For subtle glass effect */
+  backdrop-filter: blur(2.5px);
+}
+
+/* Optional: add a hover effect to simulate gate movement for demo purposes */
+.gate-wrap:hover .gate-left {
+  transform: translateX(-70px) rotateY(18deg);
+}
+.gate-wrap:hover .gate-right {
+  transform: translateX(70px) rotateY(-18deg);
+}
+
+/* Modern focus style for accessibility */
+main#app:focus {
+  outline: 3px solid #6a93ff;
+  outline-offset: 2px;
+}
